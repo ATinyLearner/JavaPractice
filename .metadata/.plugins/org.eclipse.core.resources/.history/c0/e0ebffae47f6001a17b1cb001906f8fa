@@ -1,0 +1,44 @@
+package lib;
+
+import java.util.Scanner;
+
+public class Primary {
+	private static Scanner scanner = new Scanner(System.in);
+	private static GroceryList groceryList = new GroceryList();
+
+	public static void main(String[] args) {
+		boolean quit = false;
+		int choice = 0;
+		// printInstructions();
+		while (!quit) {
+			System.out.print("Enter your choice:");
+			choice = scanner.nextInt();
+			scanner.nextLine();
+			switch (choice) {
+			case 0:
+				// printInstructions();
+				break;
+			case 1:
+				groceryList.printGroceryList();
+				break;
+			case 2:
+				System.out.print("Enter the new item:");
+				String newItem = scanner.nextLine();
+				groceryList.addItem(newItem);
+				break;
+			case 3:
+				System.out.print("Enter the Item position:");
+				int position = scanner.nextInt();
+				scanner.nextLine();
+				System.out.print("Enter the new Item:");
+				String newItem = scanner.nextLine();
+				groceryList.modifyGroceryItem(position, newItem);
+				break;
+
+			default:
+				break;
+			}
+		}
+	}
+
+}
